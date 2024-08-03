@@ -1,28 +1,47 @@
-package Locators;
+package locators; // Defines the package name for the class
 
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeUnit; // Imports TimeUnit for handling time operations
+import org.openqa.selenium.By; // Imports By class for locating elements
+import org.openqa.selenium.WebDriver; // Imports WebDriver interface for browser control
+import org.openqa.selenium.chrome.ChromeDriver; // Imports ChromeDriver for Chrome browser control
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+public class pavan { // Defines a public class named pavan
 
-public class pavan {
+    public static void main(String[] args) throws InterruptedException { // Main method
+        
+        // Set the path for the ChromeDriver executable
+        System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe"); 
+        
+        // Create a new instance of ChromeDriver to control the Chrome browser
+        WebDriver driver = new ChromeDriver(); 
+        
+        // Maximize the browser window
+        driver.manage().window().maximize(); 
+        
+        // Navigate to the specified URL
+        driver.get("https://fitpeo.com/"); 
+        
+        // Set an implicit wait of 10 seconds for WebDriver to wait for elements to be found
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); 
+        
+        // Locate and click the "Revenue Calculator" button
+        driver.findElement(By.xpath("//div[text()='Revenue Calculator']")).click(); 
+        
+        // Locate the input field that accepts numbers and type "820" into it
+        driver.findElement(By.xpath("//input[contains(@type,'number')]")).sendKeys("820"); 
+        
+        // Locate and click on the element with the text "57"
+        driver.findElement(By.xpath("//span[text()='57']")).click(); 
+        
+        // Locate and click on the element with the text "19.19"
+        driver.findElement(By.xpath("//span[text()='19.19']")).click(); 
+        
+        // Locate and click on the element with the text "63"
+        driver.findElement(By.xpath("//span[text()='63']")).click(); 
+        
+        // Locate and click on the element with the text "15"
+        driver.findElement(By.xpath("//span[text()='15']")).click(); 
+        
+    } 
 
-	public static void main(String[] args) throws InterruptedException {
-		
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-		WebDriver driver=new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("https://fitpeo.com/");
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//div[text()='Revenue Calculator']") ).click();
-		driver.findElement(By.xpath("//input[contains(@type,'number')]")).sendKeys("820");
-		driver.findElement(By.xpath("//span[text()='57']")).click();
-		driver.findElement(By.xpath("//span[text()='19.19']")).click();
-		driver.findElement(By.xpath("//span[text()='63']")).click();
-		driver.findElement(By.xpath("//span[text()='15']")).click();
-
-
-	}
-
-}
+} 
